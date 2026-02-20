@@ -1,0 +1,159 @@
+/* ==================== PROJECTS ==================== */
+.projects {
+    padding: 80px 0 100px;
+    background: var(--gray-50);
+}
+
+.project-filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 24px;
+    border: 2px solid var(--gray-200);
+    background: var(--white);
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.project-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid var(--gray-100);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-image {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image-icon {
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.5);
+    transition: var(--transition);
+}
+
+.project-card:hover .project-image-icon {
+    transform: scale(1.15);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.project-info {
+    padding: 28px;
+}
+
+.project-category {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: var(--primary-darker);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.project-info h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 8px 0 10px;
+}
+
+.project-info p {
+    font-size: 0.88rem;
+    color: var(--gray-500);
+    line-height: 1.6;
+}
+
+/* ==================== PROJECT STATS ==================== */
+.project-stats {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--primary-darker) 0%, var(--primary) 50%, var(--primary-light) 100%);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: center;
+}
+
+.stats-grid .stat-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--white);
+    display: block;
+}
+
+.stats-grid .stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .project-filters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

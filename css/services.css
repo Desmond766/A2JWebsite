@@ -1,0 +1,231 @@
+/* ==================== SERVICES GRID ==================== */
+.services {
+    padding: 80px 0 100px;
+    background: var(--gray-50);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.service-card {
+    position: relative;
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 40px 32px;
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid var(--gray-100);
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+}
+
+.service-icon {
+    width: 72px;
+    height: 72px;
+    background: var(--primary-lightest);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: var(--transition);
+}
+
+.service-icon i {
+    font-size: 1.6rem;
+    color: var(--primary-darker);
+    transition: var(--transition);
+}
+
+.service-card:hover .service-icon {
+    background: var(--primary);
+}
+
+.service-card:hover .service-icon i {
+    color: var(--white);
+}
+
+.service-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.service-card > p {
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.service-details {
+    text-align: left;
+    padding-left: 8px;
+}
+
+.service-details li {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+}
+
+.service-details li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    background: var(--primary-light);
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+/* Hover overlay */
+.service-hover-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--primary-darker) 0%, var(--primary) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    opacity: 0;
+    transition: var(--transition);
+    border-radius: var(--radius-xl);
+}
+
+.service-card:hover .service-hover-overlay {
+    opacity: 1;
+}
+
+.service-hover-overlay h3 {
+    color: var(--white);
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.service-hover-overlay ul {
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.service-hover-overlay ul li {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.9rem;
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.service-hover-overlay ul li i {
+    color: var(--primary-lightest);
+    font-size: 0.75rem;
+}
+
+/* ==================== PROCESS SECTION ==================== */
+.process {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.process-step {
+    text-align: center;
+    position: relative;
+}
+
+.process-step::after {
+    content: '';
+    position: absolute;
+    top: 36px;
+    right: -16px;
+    width: 32px;
+    height: 2px;
+    background: var(--primary-light);
+}
+
+.process-step:last-child::after {
+    display: none;
+}
+
+.step-number {
+    width: 72px;
+    height: 72px;
+    background: var(--primary-lightest);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--primary-darker);
+    transition: var(--transition);
+}
+
+.process-step:hover .step-number {
+    background: var(--primary);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.process-step h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.process-step p {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    line-height: 1.6;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-step:nth-child(2)::after {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .process-step::after {
+        display: none;
+    }
+}

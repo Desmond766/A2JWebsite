@@ -1,0 +1,4 @@
+HTML5, CSS3, Vanilla JavaScript
+Google Fonts (Montserrat, Open Sans)
+Font Awesome 6.5 (icons)
+Multi-page architecture with shared JS components for header/footer
