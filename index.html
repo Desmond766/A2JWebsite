@@ -216,9 +216,17 @@
                     </div>
                 </div>
                 <div class="why-us-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-helmet-safety"></i>
-                        <span>Built in the Details — Est. 2024</span>
+                    <div class="video-wrapper" id="videoWrapper">
+                        <video id="heroVideo" autoplay muted loop playsinline>
+                            <source src="https://pub-c60a4e1516b2419b943f46b87f327c12.r2.dev/videos/A2J Main V2.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-controls">
+                            <button class="video-btn" id="videoRewind" aria-label="Rewind 10s"><i class="fas fa-backward"></i></button>
+                            <button class="video-btn" id="videoPlayPause" aria-label="Play/Pause"><i class="fas fa-pause"></i></button>
+                            <button class="video-btn" id="videoForward" aria-label="Forward 10s"><i class="fas fa-forward"></i></button>
+                            <button class="video-btn" id="videoMute" aria-label="Mute/Unmute"><i class="fas fa-volume-xmark"></i></button>
+                            <input type="range" id="videoVolume" class="volume-slider" min="0" max="1" step="0.05" value="0.5">
+                        </div>
                     </div>
                 </div>
             </div>
