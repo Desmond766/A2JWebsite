@@ -31,31 +31,53 @@
 .logo {
     display: flex;
     align-items: center;
-    gap: 2px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 800;
+    gap: 12px;
     z-index: 1001;
 }
 
-.logo-a2j {
-    color: var(--white);
-    background: var(--primary);
-    padding: 4px 10px;
-    border-radius: 6px;
-    letter-spacing: 1px;
+.logo-icon-wrap {
+    width: 56px;
+    height: 56px;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: var(--transition);
 }
 
-.logo-construction {
-    color: var(--white);
-    font-weight: 600;
-    font-size: 1.1rem;
-    letter-spacing: 2px;
-    margin-left: 8px;
+.logo-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* White on blue hero — hides white bg and turns icon white */
+    filter: brightness(0) invert(1);
+    transition: var(--transition);
 }
 
-.navbar.scrolled .logo-construction,
-.navbar.navbar-light .logo-construction {
+.logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--white);
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+/* When header turns white */
+.navbar.scrolled .logo-icon-wrap,
+.navbar.navbar-light .logo-icon-wrap {
+    width: 48px;
+    height: 48px;
+}
+
+.navbar.scrolled .logo-img,
+.navbar.navbar-light .logo-img {
+    filter: none;
+    mix-blend-mode: multiply;
+}
+
+.navbar.scrolled .logo-text,
+.navbar.navbar-light .logo-text {
     color: var(--gray-800);
 }
 

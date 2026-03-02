@@ -76,31 +76,69 @@
     margin-top: 2px;
 }
 
-.contact-socials {
-    display: flex;
-    gap: 12px;
-    padding-top: 8px;
+/* Social Links Section */
+.contact-socials-section h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 12px;
 }
 
-.contact-socials a {
-    width: 44px;
-    height: 44px;
-    background: var(--white);
-    border: 1px solid var(--gray-200);
-    border-radius: 50%;
+.contact-social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-link-card {
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: var(--gray-500);
-    font-size: 1rem;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius-lg);
     transition: var(--transition);
 }
 
-.contact-socials a:hover {
-    background: var(--primary);
-    border-color: var(--primary);
+.social-link-card:hover {
+    border-color: var(--primary-light);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+}
+
+.social-link-card i {
+    font-size: 1.4rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    flex-shrink: 0;
+}
+
+.social-link-card .fa-linkedin-in {
+    background: #0a66c2;
     color: var(--white);
-    transform: translateY(-3px);
+}
+
+.social-link-card .fa-instagram {
+    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: var(--white);
+}
+
+.social-link-card strong {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: var(--gray-800);
+}
+
+.social-link-card span {
+    font-size: 0.82rem;
+    color: var(--gray-400);
 }
 
 /* ==================== CONTACT FORM ==================== */

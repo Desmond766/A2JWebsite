@@ -34,67 +34,76 @@ function initProjectFilters() {
     });
 }
 
-// ==================== LIGHTBOX ====================
+// ==================== PROJECT DATA ====================
 const projectData = {
-    'Modern Family Home – Sydney': {
-        location: 'Sydney, NSW',
-        year: 'Completed 2024',
-        size: '320 sqm',
-        duration: '8 months'
+    'School Recladding – Aitken College': {
+        location: 'VIC',
+        duration: '2 weeks',
+        photos: 'aitken-college'
     },
-    'Office Complex – Melbourne CBD': {
-        location: 'Melbourne, VIC',
-        year: 'Completed 2023',
-        size: '1,200 sqm',
-        duration: '12 months'
+    'Swinburne University Protolab – Hawthorn': {
+        location: 'Hawthorn, VIC',
+        duration: 'Compressed programme',
+        photos: 'swinburne-protolab'
     },
-    'Heritage Kitchen Renovation – Brisbane': {
-        location: 'Brisbane, QLD',
-        year: 'Completed 2024',
-        size: '45 sqm',
-        duration: '6 weeks'
+    'TES Office Fitout – Hawthorn': {
+        location: 'Hawthorn, VIC',
+        photos: 'tes-offices'
     },
-    'Luxury Duplex – Gold Coast': {
-        location: 'Gold Coast, QLD',
-        year: 'Completed 2023',
-        size: '480 sqm',
-        duration: '10 months'
+    'Jones Rd Apartments – Dandenong': {
+        location: 'Dandenong, VIC',
+        size: '28 Units',
+        duration: 'CSV Program',
+        photos: 'jones-rd'
     },
-    'Restaurant Fit-out – Perth': {
-        location: 'Perth, WA',
-        year: 'Completed 2024',
-        size: '180 sqm',
-        duration: '3 months'
+    'Springleaf Pavilion – Clyde': {
+        location: 'Clyde, VIC',
+        size: '3,000+ sqm',
+        duration: 'Tight programme',
+        photos: 'springleaf-pavilion'
     },
-    'Bathroom Suite Upgrade – Adelaide': {
-        location: 'Adelaide, SA',
-        year: 'Completed 2025',
-        size: '28 sqm',
-        duration: '3 weeks'
+    'Federation University Nursing Lab – Berwick': {
+        location: 'Berwick, VIC',
+        duration: '8 weeks',
+        photos: 'berwick-nursing'
     },
-    'Eco Home – Canberra': {
-        location: 'Canberra, ACT',
-        year: 'Completed 2024',
-        size: '260 sqm',
-        duration: '7 months'
-    },
-    'Dental Clinic Fit-out – Hobart': {
-        location: 'Hobart, TAS',
-        year: 'Completed 2025',
-        size: '150 sqm',
-        duration: '2 months'
-    },
-    'Open Plan Living Conversion – Darwin': {
-        location: 'Darwin, NT',
-        year: 'Completed 2024',
-        size: '65 sqm',
-        duration: '5 weeks'
+    '7-Storey Hotel Restoration – Port Vila, Vanuatu': {
+        location: 'Port Vila, Vanuatu',
+        size: '7 Storeys',
+        photos: 'vanuatu'
     }
 };
+
+const PHOTO_COUNT = 5;
+
+// ==================== LIGHTBOX & GALLERY ====================
+let currentPhotoIndex = 0;
+let currentPhotos = [];
+
+function setGalleryPhoto(index) {
+    currentPhotoIndex = index;
+    const photoEl = document.getElementById('galleryPhoto');
+    photoEl.style.opacity = '0';
+    setTimeout(() => {
+        photoEl.src = currentPhotos[index];
+        photoEl.onload = () => { photoEl.style.opacity = '1'; };
+    }, 150);
+
+    document.querySelectorAll('.gallery-thumb').forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
+    });
+
+    document.getElementById('galleryCounter').textContent = (index + 1) + ' / ' + currentPhotos.length;
+
+    document.getElementById('galleryPrev').style.visibility = index === 0 ? 'hidden' : 'visible';
+    document.getElementById('galleryNext').style.visibility = index === currentPhotos.length - 1 ? 'hidden' : 'visible';
+}
 
 function initLightbox() {
     const overlay = document.getElementById('lightbox');
     const closeBtn = document.getElementById('lightboxClose');
+    const prevBtn = document.getElementById('galleryPrev');
+    const nextBtn = document.getElementById('galleryNext');
     const cards = document.querySelectorAll('.project-card');
 
     if (!overlay || !cards.length) return;
@@ -105,35 +114,73 @@ function initLightbox() {
             const title = card.querySelector('.project-info h3').textContent;
             const desc = card.querySelector('.project-info p').textContent;
             const category = card.querySelector('.project-category').textContent;
-            const imageBg = card.querySelector('.project-image').style.background;
-            const iconHTML = card.querySelector('.project-image-icon').innerHTML;
 
-            // Populate lightbox
             document.getElementById('lightboxTitle').textContent = title;
             document.getElementById('lightboxDesc').textContent = desc;
             document.getElementById('lightboxCategory').textContent = category;
-            document.getElementById('lightboxImage').style.background = imageBg;
-            document.getElementById('lightboxIcon').innerHTML = iconHTML;
 
-            // Populate details from data
-            const data = projectData[title] || {
-                location: 'Australia',
-                year: 'Recent',
-                size: '—',
-                duration: '—'
-            };
-            document.getElementById('lightboxLocation').textContent = data.location;
-            document.getElementById('lightboxYear').textContent = data.year;
-            document.getElementById('lightboxSize').textContent = data.size;
-            document.getElementById('lightboxDuration').textContent = data.duration;
+            const data = projectData[title] || {};
+            const fields = [
+                { id: 'lightboxLocation', value: data.location },
+                { id: 'lightboxYear', value: data.year },
+                { id: 'lightboxSize', value: data.size },
+                { id: 'lightboxDuration', value: data.duration }
+            ];
+            fields.forEach(f => {
+                const el = document.getElementById(f.id);
+                const wrapper = el.closest('.lightbox-detail');
+                if (f.value) {
+                    el.textContent = f.value;
+                    wrapper.style.display = '';
+                } else {
+                    wrapper.style.display = 'none';
+                }
+            });
 
-            // Show
+            const folder = data.photos;
+            currentPhotos = [];
+            for (let i = 1; i <= PHOTO_COUNT; i++) {
+                currentPhotos.push(assetUrl('images/projects/' + folder + '/' + i + '.jpg'));
+            }
+
+            const thumbContainer = document.getElementById('galleryThumbnails');
+            thumbContainer.innerHTML = '';
+            currentPhotos.forEach((src, i) => {
+                const thumb = document.createElement('img');
+                thumb.src = src;
+                thumb.alt = 'Photo ' + (i + 1);
+                thumb.className = 'gallery-thumb' + (i === 0 ? ' active' : '');
+                thumb.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    setGalleryPhoto(i);
+                });
+                thumbContainer.appendChild(thumb);
+            });
+
+            setGalleryPhoto(0);
+
             overlay.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
     });
 
-    // Close lightbox
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (currentPhotoIndex > 0) setGalleryPhoto(currentPhotoIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (currentPhotoIndex < currentPhotos.length - 1) setGalleryPhoto(currentPhotoIndex + 1);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (!overlay.classList.contains('active')) return;
+        if (e.key === 'ArrowLeft' && currentPhotoIndex > 0) setGalleryPhoto(currentPhotoIndex - 1);
+        if (e.key === 'ArrowRight' && currentPhotoIndex < currentPhotos.length - 1) setGalleryPhoto(currentPhotoIndex + 1);
+        if (e.key === 'Escape') closeLightbox();
+    });
+
     function closeLightbox() {
         overlay.classList.remove('active');
         document.body.style.overflow = '';
@@ -142,8 +189,5 @@ function initLightbox() {
     closeBtn.addEventListener('click', closeLightbox);
     overlay.addEventListener('click', (e) => {
         if (e.target === overlay) closeLightbox();
-    });
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && overlay.classList.contains('active')) closeLightbox();
     });
 }

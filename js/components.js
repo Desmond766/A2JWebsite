@@ -9,7 +9,8 @@ function getNavHTML(activePage) {
     <nav class="navbar ${activePage !== 'home' ? 'navbar-light' : ''}" id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <span class="logo-a2j">A2J</span><span class="logo-construction">CONSTRUCTION</span>
+                <div class="logo-icon-wrap"><img src="${assetUrl('images/A2J-Logo_white background.png')}" alt="A2J Construction Services" class="logo-img"></div>
+                <span class="logo-text">A2J Construction Services</span>
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="nav-link ${activePage === 'home' ? 'active' : ''}">Home</a></li>
@@ -18,39 +19,39 @@ function getNavHTML(activePage) {
                     <div class="dropdown-menu">
                         <div class="dropdown-grid">
                             <div class="dropdown-category">
-                                <h4><i class="fas fa-trowel"></i> Plastering</h4>
+                                <h4><i class="fas fa-trowel"></i> Framing & Plastering</h4>
                                 <ul>
-                                    <li><a href="services.html#plastering">Interior Plastering</a></li>
-                                    <li><a href="services.html#plastering">Exterior Rendering</a></li>
-                                    <li><a href="services.html#plastering">Decorative Finishes</a></li>
-                                    <li><a href="services.html#plastering">Repair & Patching</a></li>
+                                    <li><a href="services.html#plastering">Metal Stud Framing</a></li>
+                                    <li><a href="services.html#plastering">Plasterboard Lining</a></li>
+                                    <li><a href="services.html#plastering">Suspended Ceilings</a></li>
+                                    <li><a href="services.html#plastering">Feature Ceilings</a></li>
                                 </ul>
                             </div>
                             <div class="dropdown-category">
-                                <h4><i class="fas fa-layer-group"></i> Cladding</h4>
+                                <h4><i class="fas fa-layer-group"></i> Cladding & Panels</h4>
                                 <ul>
-                                    <li><a href="services.html#cladding">Timber Cladding</a></li>
-                                    <li><a href="services.html#cladding">Metal Cladding</a></li>
-                                    <li><a href="services.html#cladding">Composite Panels</a></li>
-                                    <li><a href="services.html#cladding">Weatherboard Installation</a></li>
+                                    <li><a href="services.html#cladding">Fibre Cement Cladding</a></li>
+                                    <li><a href="services.html#timber">Architectural Panels</a></li>
+                                    <li><a href="services.html#cladding">Facade Systems</a></li>
+                                    <li><a href="services.html#recladding">Recladding & Remedial</a></li>
                                 </ul>
                             </div>
                             <div class="dropdown-category">
-                                <h4><i class="fas fa-hard-hat"></i> Concrete Works</h4>
+                                <h4><i class="fas fa-border-top-left"></i> Ceilings & Acoustic</h4>
                                 <ul>
-                                    <li><a href="services.html#concrete">Foundations & Slabs</a></li>
-                                    <li><a href="services.html#concrete">Driveways & Paths</a></li>
-                                    <li><a href="services.html#concrete">Retaining Walls</a></li>
-                                    <li><a href="services.html#concrete">Decorative Concrete</a></li>
+                                    <li><a href="services.html#ceilings">Suspended Ceiling Grids</a></li>
+                                    <li><a href="services.html#ceilings">Acoustic Panels</a></li>
+                                    <li><a href="services.html#ceilings">Healthcare-Grade Systems</a></li>
+                                    <li><a href="services.html#ceilings">Specialty Tiles</a></li>
                                 </ul>
                             </div>
                             <div class="dropdown-category">
-                                <h4><i class="fas fa-home"></i> Renovations</h4>
+                                <h4><i class="fas fa-cubes"></i> Multi-Trade</h4>
                                 <ul>
-                                    <li><a href="services.html#renovations">Kitchen Renovations</a></li>
-                                    <li><a href="services.html#renovations">Bathroom Renovations</a></li>
-                                    <li><a href="services.html#renovations">Home Extensions</a></li>
-                                    <li><a href="services.html#renovations">Commercial Fit-outs</a></li>
+                                    <li><a href="services.html#multitrade">Painting</a></li>
+                                    <li><a href="services.html#multitrade">Glazing</a></li>
+                                    <li><a href="services.html#multitrade">Waterproofing</a></li>
+                                    <li><a href="services.html#multitrade">Tiling</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -76,13 +77,10 @@ function getFooterHTML() {
             <div class="footer-grid">
                 <div class="footer-about">
                     <a href="index.html" class="footer-logo">
-                        <span class="logo-a2j">A2J</span><span class="logo-construction">CONSTRUCTION</span>
+                        <div class="footer-logo-icon-wrap"><img src="${assetUrl('images/A2J-Logo_white background.png')}" alt="A2J Construction Services" class="footer-logo-img"></div>
+                        <span class="footer-logo-text">A2J Construction Services</span>
                     </a>
-                    <p>Building quality structures and lasting relationships across Australia since 2009. Licensed, insured, and committed to excellence.</p>
-                    <div class="footer-license">
-                        <i class="fas fa-id-card"></i>
-                        <span>NSW Builders Licence: 12345678</span>
-                    </div>
+                    <p>Melbourne-based construction services company. Founded on transparency, communication and reliability — delivering across Victoria and interstate since 2024.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -96,20 +94,26 @@ function getFooterHTML() {
                 <div class="footer-services">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="services.html#plastering">Plastering</a></li>
-                        <li><a href="services.html#cladding">Cladding</a></li>
-                        <li><a href="services.html#concrete">Concrete Works</a></li>
-                        <li><a href="services.html#renovations">Renovations</a></li>
-                        <li><a href="services.html#extensions">Extensions</a></li>
-                        <li><a href="services.html#commercial">Commercial Fit-outs</a></li>
+                        <li><a href="services.html#plastering">Framing & Plastering</a></li>
+                        <li><a href="services.html#timber">Architectural Panels</a></li>
+                        <li><a href="services.html#recladding">Recladding & Remedial</a></li>
+                        <li><a href="services.html#cladding">Cladding & External Linings</a></li>
+                        <li><a href="services.html#ceilings">Ceiling & Acoustic Systems</a></li>
+                        <li><a href="services.html#multitrade">Multi-Trade Interior Packages</a></li>
+                        <li><a href="services.html#live-environments">Live & Staged Environments</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Contact</h4>
                     <ul>
-                        <li><i class="fas fa-location-dot"></i> 123 Builder St, Sydney NSW</li>
-                        <li><i class="fas fa-phone"></i> +61 400 000 000</li>
-                        <li><i class="fas fa-envelope"></i> info@a2jconstruction.com.au</li>
+                        <li><i class="fas fa-location-dot"></i> Melbourne, VIC</li>
+                        <li><i class="fas fa-phone"></i> (03) 9191 8089</li>
+                        <li><i class="fas fa-envelope"></i> marketing@a2jcs.com</li>
+                    </ul>
+                    <h4 class="footer-social-heading">Follow Us On</h4>
+                    <ul class="footer-social-list">
+                        <li><a href="https://www.linkedin.com/company/a2j-construction-services" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+                        <li><a href="https://www.instagram.com/a2jconstruction/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a></li>
                     </ul>
                 </div>
             </div>
@@ -148,7 +152,7 @@ function injectMobileCTA() {
     cta.className = 'mobile-cta';
     cta.innerHTML = `
         <div class="mobile-cta-inner">
-            <a href="tel:+61400000000" class="btn-cta-call">
+            <a href="tel:+61391918089" class="btn-cta-call">
                 <i class="fas fa-phone"></i> Call Now
             </a>
             <a href="contact.html" class="btn-cta-quote">
