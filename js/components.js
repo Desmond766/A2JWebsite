@@ -10,7 +10,7 @@ function getNavHTML(activePage) {
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <div class="logo-icon-wrap"><img src="${assetUrl('images/A2J-Logo_white background.png')}" alt="A2J Construction Services" class="logo-img"></div>
-                <span class="logo-text">A2J Construction Services</span>
+                <div class="logo-text"><span class="logo-a2j">A2J</span><span class="logo-lines">Construction<br>Services</span></div>
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="nav-link ${activePage === 'home' ? 'active' : ''}">Home</a></li>

@@ -7,8 +7,9 @@
     padding-top: 100px;
     padding-bottom: 100px;
     background-image:
-        linear-gradient(135deg, rgba(14, 165, 233, 0.75) 0%, rgba(56, 189, 248, 0.6) 50%, rgba(86, 204, 242, 0.5) 100%),
-        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80');
+        linear-gradient(135deg, rgba(14, 165, 233, 0.35) 0%, rgba(56, 189, 248, 0.25) 50%, rgba(86, 204, 242, 0.2) 100%),
+        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('https://pub-c60a4e1516b2419b943f46b87f327c12.r2.dev/images/cover.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -21,7 +22,7 @@
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(135deg, rgba(14, 165, 233, 0.92) 0%, rgba(56, 189, 248, 0.85) 50%, rgba(86, 204, 242, 0.78) 100%);
+        linear-gradient(135deg, rgba(14, 165, 233, 0.55) 0%, rgba(56, 189, 248, 0.45) 50%, rgba(86, 204, 242, 0.4) 100%);
     z-index: 0;
     opacity: 0;
     transition: opacity 0.5s ease;

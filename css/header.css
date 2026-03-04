@@ -36,8 +36,8 @@
 }
 
 .logo-icon-wrap {
-    width: 56px;
-    height: 56px;
+    width: 72px;
+    height: 72px;
     overflow: hidden;
     flex-shrink: 0;
     transition: var(--transition);
@@ -53,21 +53,37 @@
 }
 
 .logo-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.logo-a2j {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: var(--white);
+    line-height: 1;
+    transition: var(--transition);
+}
+
+.logo-lines {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--white);
+    line-height: 1.3;
     letter-spacing: 0.5px;
-    line-height: 1.2;
-    white-space: nowrap;
+    text-align: left;
     transition: var(--transition);
 }
 
 /* When header turns white */
 .navbar.scrolled .logo-icon-wrap,
 .navbar.navbar-light .logo-icon-wrap {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
 }
 
 .navbar.scrolled .logo-img,
@@ -76,8 +92,10 @@
     mix-blend-mode: multiply;
 }
 
-.navbar.scrolled .logo-text,
-.navbar.navbar-light .logo-text {
+.navbar.scrolled .logo-a2j,
+.navbar.navbar-light .logo-a2j,
+.navbar.scrolled .logo-lines,
+.navbar.navbar-light .logo-lines {
     color: var(--gray-800);
 }
 
