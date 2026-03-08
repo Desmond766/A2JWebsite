@@ -516,6 +516,13 @@
     }
 }
 
+/* iOS Safari doesn't support background-attachment: fixed — disable on mobile */
+@media (max-width: 768px), (hover: none) {
+    .hero {
+        background-attachment: scroll;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-stats {
         gap: 30px;
