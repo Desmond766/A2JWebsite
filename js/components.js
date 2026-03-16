@@ -89,6 +89,7 @@ function getFooterHTML() {
                         <li><a href="services.html">Our Services</a></li>
                         <li><a href="projects.html">Past Projects</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="https://pub-c60a4e1516b2419b943f46b87f327c12.r2.dev/files/Terms%20of%20Trade.pdf" target="_blank" rel="noopener noreferrer">Terms of Trade</a></li>
                     </ul>
                 </div>
                 <div class="footer-services">
